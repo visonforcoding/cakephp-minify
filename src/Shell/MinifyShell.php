@@ -36,18 +36,24 @@ class MinifyShell extends Shell {
      * @return bool|int Success or error code.
      */
     public function main() {
-        $this->out($this->OptionParser->help());
+        $this->out('use cakeminify start command to combine asset resourece');
     }
 
+    
+    public function start(){
+        $this->mincss();
+        $this->minjs();
+        
+    }
     public function mincss() {
         $source = \Cake\Core\Configure::read('mincss.source');
         $desc =  \Cake\Core\Configure::read('mincss.desc');
         if(is_array($source)){
             $minifier = new Minify\CSS();
             foreach ($source as $v) {
-                $minifier->add($v);
+                $minifier->add(WWW_ROOT.$v);
             }
-            $minifier->minify($desc);
+            $minifier->minify(WWW_ROOT.$desc);
             $this->out('css 压缩合并完毕');
         }else{
             $this->err('配置不正确');
@@ -60,9 +66,9 @@ class MinifyShell extends Shell {
         if(is_array($source)){
             $minifier = new Minify\JS();
             foreach ($source as $v) {
-                $minifier->add($v);
+                $minifier->add(WWW_ROOT.$v);
             }
-            $minifier->minify($desc);
+            $minifier->minify(WWW_ROOT.$desc);
             $this->out('js 压缩合并完毕');
         }else{
             $this->err('配置不正确');
