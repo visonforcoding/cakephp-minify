@@ -51,9 +51,9 @@ class MinifyShell extends Shell {
         if(is_array($source)){
             $minifier = new Minify\CSS();
             foreach ($source as $v) {
-                $minifier->add(WWW_ROOT.$v);
+                $minifier->add(WWW_ROOT.substr($v,1));
             }
-            $minifier->minify(WWW_ROOT.$desc);
+            $minifier->minify(WWW_ROOT.substr($desc, 1));
             $this->out('css 压缩合并完毕');
         }else{
             $this->err('配置不正确');
@@ -66,9 +66,9 @@ class MinifyShell extends Shell {
         if(is_array($source)){
             $minifier = new Minify\JS();
             foreach ($source as $v) {
-                $minifier->add(WWW_ROOT.$v);
+                $minifier->add(WWW_ROOT.substr($v,1));
             }
-            $minifier->minify(WWW_ROOT.$desc);
+            $minifier->minify(WWW_ROOT.substr($desc, 1));
             $this->out('js 压缩合并完毕');
         }else{
             $this->err('配置不正确');
