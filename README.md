@@ -55,7 +55,7 @@ the combine file will create in your 'desc' config
 
 call the helper function in your template
 
-```
+```php
   <?= $this->minify->generateAsset() ?>
 ```
 
