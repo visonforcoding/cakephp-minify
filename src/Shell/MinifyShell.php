@@ -54,9 +54,9 @@ class MinifyShell extends Shell {
                 $minifier->add(WWW_ROOT.substr($v,1));
             }
             $minifier->minify(WWW_ROOT.substr($desc, 1));
-            $this->out('css 压缩合并完毕');
+            $this->out('css combine and compress is finished');
         }else{
-            $this->err('配置不正确');
+            $this->err('something is wrong in config');
         }
     }
     
@@ -69,9 +69,9 @@ class MinifyShell extends Shell {
                 $minifier->add(WWW_ROOT.substr($v,1));
             }
             $minifier->minify(WWW_ROOT.substr($desc, 1));
-            $this->out('js 压缩合并完毕');
+            $this->out('js combine and compress is finished');
         }else{
-            $this->err('配置不正确');
+            $this->err('something is wrong in config');
         }
     }
     
